@@ -1,7 +1,7 @@
 const Profile = require("../../models/Profile");
 const { createProfileValidation } = require("../../services/Validation");
-const Response = require("../../../../common/services/Response");
-const Constant = require("../../../../common/services/Constant");
+const Response = require('@avv-2301/gamers-vault-common');
+const Constant = require('@avv-2301/gamers-vault-common');
 const axios = require("axios");
 
 module.exports = {

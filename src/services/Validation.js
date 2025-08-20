@@ -18,7 +18,7 @@ module.exports = {
       return Response.validationErrorResponseData(
         res,
         "All Fields are Required",
-        Constant.NOT_ACCEPTABLE
+        Constant.STATUS_CODES.NOT_ACCEPTABLE
       );
     }
     return callback(true);

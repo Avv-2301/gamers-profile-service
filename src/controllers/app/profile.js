@@ -12,7 +12,7 @@ module.exports = {
   createProfile: async (req, res) => {
     try {
       const requestParams = req.body;
-      console.log(requestParams, "PROFILE PARAMS");
+      // console.log(requestParams, "PROFILE PARAMS");
 
       if (
         !requestParams?.userId ||
@@ -22,7 +22,7 @@ module.exports = {
         return Response.errorResponseData(
           res,
           "Missing required fields",
-          Constant.BAD_REQUEST
+          Constant.STATUS_CODES.BAD_REQUEST
         );
       }
       createProfileValidation(requestParams, res, async (validate) => {
@@ -49,7 +49,7 @@ module.exports = {
           return Response.successResponseData(
             res,
             profileCreation,
-            Constant.CREATED,
+            Constant.STATUS_CODES.CREATED,
             "Profile created"
           );
         }
@@ -60,7 +60,7 @@ module.exports = {
       return Response.errorResponseData(
         res,
         error.message,
-        Constant.INTERNAL_SERVER
+        Constant.STATUS_CODES.INTERNAL_SERVER
       );
     }
   },

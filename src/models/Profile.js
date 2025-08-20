@@ -1,6 +1,11 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 
 const profileSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
   profilePhoto: {
     type: String,
   },
@@ -14,10 +19,10 @@ const profileSchema = new mongoose.Schema({
   },
   rank: {
     type: Number,
-    default:1,
+    default: 1,
   },
-  level:{
-    type:Number,
+  level: {
+    type: Number,
     required: true,
     default: 1,
   },
@@ -27,14 +32,14 @@ const profileSchema = new mongoose.Schema({
     enum: ["public", "private"],
     default: "public",
   },
-  city:{
-    type:String,
+  city: {
+    type: String,
     default: null,
   },
-  library:{
-    type: mongoose.Schema.Types.ObjectId,
+  library: {
+    type: Number,
     required: true,
-  }
+  },
 });
 
 module.exports = mongoose.model("Profile", profileSchema);

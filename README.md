@@ -12,9 +12,6 @@ A Node.js microservice responsible for managing user profiles. Handles operation
 - [Getting Started](#getting-started)  
 - [Configuration](#configuration)  
 - [Usage](#usage)  
-- [Testing](#testing)  
-- [Contributing](#contributing)  
-- [License](#license)  
 
 ---
 
@@ -35,7 +32,6 @@ A Node.js microservice responsible for managing user profiles. Handles operation
 - **Authentication:** JWT (via User Service)  
 - **Validation:** Joi  
 - **Logging:** Winston / Morgan  
-- **Testing:** Jest, Supertest  
 
 ---
 

@@ -1,7 +1,7 @@
 const Profile = require("../../models/Profile");
 const { createProfileValidation } = require("../../services/Validation");
-const Response = require('@avv-2301/gamers-vault-common');
-const Constant = require('@avv-2301/gamers-vault-common');
+const Response = require("@avv-2301/gamers-vault-common");
+const Constant = require("@avv-2301/gamers-vault-common");
 
 module.exports = {
   /**
@@ -25,6 +25,7 @@ module.exports = {
           Constant.STATUS_CODES.BAD_REQUEST
         );
       }
+
       createProfileValidation(requestParams, res, async (validate) => {
         if (validate) {
           // const libraryCreation = await axios.post("", {
@@ -53,8 +54,7 @@ module.exports = {
             "Profile created"
           );
         }
-      }
-    );
+      });
     } catch (error) {
       console.log(error);
       return Response.errorResponseData(

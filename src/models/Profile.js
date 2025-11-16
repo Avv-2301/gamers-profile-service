@@ -37,7 +37,7 @@ const profileSchema = new mongoose.Schema({
     default: null,
   },
   library: {
-    type: Number,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
 });

@@ -2,6 +2,7 @@ const Profile = require("../../models/Profile");
 const { createProfileValidation } = require("../../services/Validation");
 const Response = require("@avv-2301/gamers-vault-common");
 const Constant = require("@avv-2301/gamers-vault-common");
+const { callService } = require("@avv-2301/gamers-vault-common");
 
 module.exports = {
   /**
@@ -28,11 +29,16 @@ module.exports = {
 
       createProfileValidation(requestParams, res, async (validate) => {
         if (validate) {
-          // const libraryCreation = await axios.post("", {
-          //   userId: requestParams?.userId,
-          // }); //creating user library
+          // Create library for user
+          const libraryCreation = await callService(
+            "library",
+            "/create-library",
+            { userId: requestParams?.userId },
+            { "x-internal-call": "true" },
+            "POST"
+          );
 
-          // const libraryId = libraryCreation?.data?._id; //geting library id
+          const libraryId = libraryCreation?.data?._id; // getting library id
 
           let profileObj = {
             userId: requestParams?.userId,
@@ -42,7 +48,7 @@ module.exports = {
             rank: 1,
             level: 1,
             profileType: Constant.PROFILE_TYPE.PUBLIC,
-            library: 1234,
+            library: libraryId,
           };
 
           const profileCreation = await Profile.create(profileObj);
